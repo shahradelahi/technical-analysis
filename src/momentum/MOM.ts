@@ -18,11 +18,13 @@ export type MOMTick = number;
  * **Calculation:**
  * The Momentum is calculated by subtracting the closing price of a security `n` periods ago from the current closing price.
  *
- * **Resources:**
+ * **Sources:**
  * - [Online Trading Concepts - Momentum](http://www.onlinetradingconcepts.com/TechnicalAnalysis/Momentum.html)
  */
 export class MOM extends Indicator<MOMOutput, MOMTick> {
   period: number;
+
+  window: MOMOutput[] = [];
 
   protected override result: MOMOutput[] = [];
   protected override generator;
@@ -45,7 +47,7 @@ export class MOM extends Indicator<MOMOutput, MOMTick> {
     let tick = yield;
 
     const windowSize = this.period + 1;
-    let window = [tick];
+    this.window = [tick];
     let output;
 
     while (true) {
@@ -54,13 +56,13 @@ export class MOM extends Indicator<MOMOutput, MOMTick> {
         tick = yield;
       } else {
         // Calculate momentum
-        output = window[window.length - 1]! - window[0]!;
+        output = this.window[this.window.length - 1]! - this.window[0]!;
         tick = yield output;
       }
 
       // Update window
-      window.push(tick);
-      window = window.slice(-windowSize);
+      this.window.push(tick);
+      this.window = this.window.slice(-windowSize);
     }
   }
 }

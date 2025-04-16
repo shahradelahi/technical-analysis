@@ -28,6 +28,7 @@ export { PSAR, type PSARInput, type PSAROutput, type PSARTick } from '@/trend/PS
 // -- Momentum ------------------------
 export { AO, type AOInput, type AOOutput, type AOTick } from '@/momentum/AO';
 export { MOM, type MOMInput, type MOMOutput, type MOMTick } from '@/momentum/MOM';
+export { ROC, type ROCInput, type ROCOutput, type ROCTick } from '@/momentum/ROC';
 export { RSI, type RSIInput, type RSIOutput, type RSITick } from '@/momentum/RSI';
 
 // -- Utils ---------------------------
