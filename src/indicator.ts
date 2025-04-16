@@ -1,23 +1,12 @@
 import { toFixed, toPrecision } from '@/utils/number';
 
 export interface IndicatorInput {
-  reversedInput?: boolean;
   formatter?: NumberFormatterFn;
   precision?: number;
   decimal?: number;
 }
 
 export type NumberFormatterFn = (data: number) => number;
-
-export interface AllInputs {
-  values?: number[];
-  open?: number[];
-  high?: number[];
-  low?: number[];
-  close?: number[];
-  volume?: number[];
-  timestamp?: number[];
-}
 
 export abstract class Indicator<Output = number | undefined, Tick = number> {
   protected abstract generator: IterableIterator<Output, never, Tick>;

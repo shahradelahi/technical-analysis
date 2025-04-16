@@ -36,6 +36,7 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 - Money Flow Index (MFI)
 - Moving Average Convergence Divergence (MACD)
 - Parabolic Stop and Reverse (PSAR)
+- Rate of Change (ROC)
 - Relative Strength Index (RSI)
 - Rolling Moving Average (RollingMA)
 - Simple Moving Average (SMA)
