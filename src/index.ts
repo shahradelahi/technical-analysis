@@ -31,9 +31,11 @@ export { AO, type AOInput, type AOOutput, type AOTick } from '@/momentum/AO';
 
 // -- Utils ---------------------------
 export { AverageChange } from '@/utils/AverageChange';
+export { FixedSizeLinkedList } from '@/utils/FixedSizeLinkedList';
 export { Highest } from '@/utils/Highest';
 export { Lowest } from '@/utils/Lowest';
-export { FixedSizeLinkedList } from '@/utils/FixedSizeLinkedList';
+export { LinkedList } from '@/utils/LinkedList';
 
 // -- Math ---------------------
 export { fibonacci, type FibonacciLevel } from '@/math/fibonacci';
+export { hlc3 } from '@/math/hlc3';
