@@ -28,20 +28,21 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 #### Indicators
 
 - Average Directional Movement (ADX)
-- Average True Range (ATR)
 - Awesome Oscillator (AO)
+- Average True Range (ATR)
 - Exponential Moving Average (EMA)
 - Ichimoku Kinkō Hyō (Ichimoku)
-- Money Flow Index (MFI)
+- Momentum (MOM)
 - Moving Average Convergence Divergence (MACD)
+- Money Flow Index (MFI)
 - Parabolic Stop and Reverse (PSAR)
 - Relative Strength Index (RSI)
 - Rolling Moving Average (RollingMA)
 - Simple Moving Average (SMA)
 - True Range
 - Volume Weighted Average Price (VWAP)
-- Weighted Moving Average (WMA)
 - Welles WildeR's Moving Average (RMA)
+- Weighted Moving Average (WMA)
 
 #### Utils
 
