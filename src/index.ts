@@ -26,8 +26,9 @@ export { ADX, type ADXInput, type ADXOutput, type ADXTick } from '@/trend/ADX';
 export { PSAR, type PSARInput, type PSAROutput, type PSARTick } from '@/trend/PSAR';
 
 // -- Momentum ------------------------
-export { RSI, type RSIInput, type RSIOutput, type RSITick } from '@/momentum/RSI';
 export { AO, type AOInput, type AOOutput, type AOTick } from '@/momentum/AO';
+export { MOM, type MOMInput, type MOMOutput, type MOMTick } from '@/momentum/MOM';
+export { RSI, type RSIInput, type RSIOutput, type RSITick } from '@/momentum/RSI';
 
 // -- Utils ---------------------------
 export { AverageChange } from '@/utils/AverageChange';

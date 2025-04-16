@@ -32,6 +32,7 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 - Awesome Oscillator (AO)
 - Exponential Moving Average (EMA)
 - Ichimoku Kinkō Hyō (Ichimoku)
+- Momentum (MOM)
 - Money Flow Index (MFI)
 - Moving Average Convergence Divergence (MACD)
 - Parabolic Stop and Reverse (PSAR)
