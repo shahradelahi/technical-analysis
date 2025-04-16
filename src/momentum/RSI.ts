@@ -1,6 +1,5 @@
 import { Indicator, IndicatorInput } from '@/indicator';
-import { AverageGain } from '@/utils/AverageGain';
-import { AverageLoss } from '@/utils/AverageLoss';
+import { AverageChange } from '@/utils/AverageChange';
 
 export interface RSIInput extends IndicatorInput {
   values: number[];
@@ -31,8 +30,8 @@ export class RSI extends Indicator<RSIOutput, RSITick> {
   values: number[];
   period: number;
 
-  private readonly avgGain: AverageGain;
-  private readonly avgLoss: AverageLoss;
+  private readonly avgGain: AverageChange;
+  private readonly avgLoss: AverageChange;
 
   protected override result: RSIOutput[] = [];
   protected override generator;
@@ -43,8 +42,8 @@ export class RSI extends Indicator<RSIOutput, RSITick> {
     this.period = input.period || 14;
     this.values = input.values;
 
-    this.avgGain = new AverageGain({ period: this.period, values: [] });
-    this.avgLoss = new AverageLoss({ period: this.period, values: [] });
+    this.avgGain = new AverageChange({ period: this.period, values: [], positive: true });
+    this.avgLoss = new AverageChange({ period: this.period, values: [], positive: false });
 
     this.generator = this.rsiGenerator();
     this.generator.next();
