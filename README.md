@@ -27,20 +27,21 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 
 #### Indicators
 
-- Awesome Oscillator (AO)
-- Relative Strength Index (RSI)
-- Exponential Moving Average (EMA)
-- Ichimoku Kinkō Hyō (Ichimoku)
-- Moving Average Convergence Divergence (MACD)
-- Welles WildeR's Moving Average (RMA)
-- Rolling Moving Average (RollingMA)
-- Simple Moving Average (SMA)
-- Volume Weighted Average Price (VWAP)
-- Weighted Moving Average (WMA)
 - Average Directional Movement (ADX)
 - Average True Range (ATR)
-- True Range
+- Awesome Oscillator (AO)
+- Exponential Moving Average (EMA)
+- Ichimoku Kinkō Hyō (Ichimoku)
 - Money Flow Index (MFI)
+- Moving Average Convergence Divergence (MACD)
+- Parabolic Stop and Reverse (PSAR)
+- Relative Strength Index (RSI)
+- Rolling Moving Average (RollingMA)
+- Simple Moving Average (SMA)
+- True Range
+- Volume Weighted Average Price (VWAP)
+- Weighted Moving Average (WMA)
+- Welles WildeR's Moving Average (RMA)
 
 #### Utils
 

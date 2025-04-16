@@ -23,6 +23,7 @@ export { MFI, type MFIInput, type MFITick, type MFIOutput } from '@/volume/MFI';
 
 // -- Trends --------------------------
 export { ADX, type ADXInput, type ADXOutput, type ADXTick } from '@/trend/ADX';
+export { PSAR, type PSARInput, type PSAROutput, type PSARTick } from '@/trend/PSAR';
 
 // -- Momentum ------------------------
 export { RSI, type RSIInput, type RSIOutput, type RSITick } from '@/momentum/RSI';
