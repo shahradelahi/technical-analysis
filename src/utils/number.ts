@@ -20,9 +20,6 @@ export function toFixed(v: number, precision?: number): number {
  * ```
  */
 export function zero(value: number): number {
-  if (!Number.isFinite(value)) {
-    return Number.NaN;
-  }
   return Math.abs(value) < Number.EPSILON ? 0 : value;
 }
 

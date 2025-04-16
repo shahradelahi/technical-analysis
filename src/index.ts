@@ -29,8 +29,7 @@ export { RSI, type RSIInput, type RSIOutput, type RSITick } from '@/momentum/RSI
 export { AO, type AOInput, type AOOutput, type AOTick } from '@/momentum/AO';
 
 // -- Utils ---------------------------
-export { AverageGain } from '@/utils/AverageGain';
-export { AverageLoss } from '@/utils/AverageLoss';
+export { AverageChange } from '@/utils/AverageChange';
 export { Highest } from '@/utils/Highest';
 export { Lowest } from '@/utils/Lowest';
 export { FixedSizeLinkedList } from '@/utils/FixedSizeLinkedList';
