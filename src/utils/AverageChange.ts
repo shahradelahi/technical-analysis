@@ -57,9 +57,10 @@ export class AverageChange extends Indicator {
       if (periodCounter < this.period) {
         periodCounter++;
       } else {
-        averageChange = averageChange === undefined
-           ? totalChange / this.period // First average calculation
-           : (averageChange * (this.period - 1) + currentChange) / this.period; // Subsequent calculations
+        averageChange =
+          averageChange === undefined
+            ? totalChange / this.period // First average calculation
+            : (averageChange * (this.period - 1) + currentChange) / this.period; // Subsequent calculations
       }
 
       previousValue = currentValue;
