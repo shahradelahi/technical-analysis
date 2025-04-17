@@ -40,6 +40,7 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 - Relative Strength Index (RSI)
 - Rolling Moving Average (RollingMA)
 - Simple Moving Average (SMA)
+- [Stochastic (STOCH)](src/momentum/Stochastic.ts)
 - True Range
 - Volume Weighted Average Price (VWAP)
 - Weighted Moving Average (WMA)
