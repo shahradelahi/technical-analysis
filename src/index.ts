@@ -43,6 +43,7 @@ export { FixedSizeLinkedList } from '@/utils/FixedSizeLinkedList';
 export { Highest } from '@/utils/Highest';
 export { Lowest } from '@/utils/Lowest';
 export { LinkedList } from '@/utils/LinkedList';
+export { RollingWindow } from '@/utils/RollingWindow';
 
 // -- Math ---------------------
 export { fibonacci, type FibonacciLevel } from '@/math/fibonacci';
