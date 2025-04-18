@@ -33,7 +33,7 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 - [Momentum (MOM)](src/momentum/MOM.ts)
 - [Rate of Change (ROC)](src/momentum/ROC.ts)
 - [Relative Strength Index (RSI)](src/momentum/RSI.ts)
-- [Stochastic (STOCH)](src/momentum/Stochastic.ts)
+- [Stochastic Oscillator (STOCH)](src/momentum/Stochastic.ts)
 - [Stochastic RSI Oscillator (STOCHRSI)](src/momentum/StochasticRSI.ts)
 
 ###### Overlap

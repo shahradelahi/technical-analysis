@@ -105,11 +105,11 @@ export class StochasticRSI extends Indicator<StochasticRSIOutput, StochasticRSIT
 
       if (window.filled()) {
         // Calculate Stochastic
-        const lowestLow = window.lowest();
-        const highestHigh = window.highest();
+        const lowest = window.lowest();
+        const highest = window.highest();
 
-        let stochastic = 100 * (rsi! - lowestLow);
-        stochastic /= zero(highestHigh - lowestLow);
+        let stochastic = 100 * (rsi! - lowest);
+        stochastic /= zero(highest - lowest);
 
         const k = this.kMa.nextValue(stochastic);
         const d = k !== undefined ? this.dMa.nextValue(k) : undefined;
