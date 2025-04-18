@@ -38,7 +38,7 @@ export interface StochasticTick {
 }
 
 /**
- * ### Stochastic (STOCH)
+ * ### Stochastic Oscillator (STOCH)
  *
  * The Stochastic Oscillator (STOCH) was developed by George Lane in the 1950's. He believed this indicator was
  * a good way to measure momentum because changes in momentum precede changes in price.

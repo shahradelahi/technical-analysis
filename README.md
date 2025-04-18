@@ -27,24 +27,39 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 
 #### Indicators
 
-- Average Directional Movement (ADX)
-- Average True Range (ATR)
-- Awesome Oscillator (AO)
-- Exponential Moving Average (EMA)
-- Ichimoku Kinkō Hyō (Ichimoku)
-- Momentum (MOM)
-- Money Flow Index (MFI)
-- Moving Average Convergence Divergence (MACD)
-- Parabolic Stop and Reverse (PSAR)
-- Rate of Change (ROC)
-- Relative Strength Index (RSI)
-- Rolling Moving Average (RollingMA)
-- Simple Moving Average (SMA)
-- [Stochastic (STOCH)](src/momentum/Stochastic.ts)
-- True Range
-- Volume Weighted Average Price (VWAP)
-- Weighted Moving Average (WMA)
-- Welles WildeR's Moving Average (RMA)
+###### Momentum
+
+- [Awesome Oscillator (AO)](src/momentum/AO.ts)
+- [Momentum (MOM)](src/momentum/MOM.ts)
+- [Rate of Change (ROC)](src/momentum/ROC.ts)
+- [Relative Strength Index (RSI)](src/momentum/RSI.ts)
+- [Stochastic Oscillator (STOCH)](src/momentum/Stochastic.ts)
+- [Stochastic RSI Oscillator (STOCHRSI)](src/momentum/StochasticRSI.ts)
+
+###### Overlap
+
+- [Exponential Moving Average (EMA)](src/overlap/EMA.ts)
+- [Ichimoku Kinkō Hyō (Ichimoku)](src/overlap/Ichimoku.ts)
+- [Moving Average Convergence Divergence (MACD)](src/overlap/MACD.ts)
+- [Rolling Moving Average (RollingMA)](src/overlap/RollingMA.ts)
+- [Simple Moving Average (SMA)](src/overlap/SMA.ts)
+- [Volume Weighted Average Price (VWAP)](src/overlap/VWAP.ts)
+- [Weighted Moving Average (WMA)](src/overlap/WMA.ts)
+- [Welles WildeR's Moving Average (RMA)](src/overlap/RMA.ts)
+
+###### Trend
+
+- [Average Directional Movement (ADX)](src/trend/ADX.ts)
+- [Parabolic Stop and Reverse (PSAR)](src/trend/PSAR.ts)
+
+###### Volatility
+
+- [Average True Range (ATR)](src/volatility/ATR.ts)
+- [True Range](src/volatility/TrueRange.ts)
+
+###### Volume
+
+- [Money Flow Index (MFI)](src/volume/MFI.ts)
 
 #### Utils
 
