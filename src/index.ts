@@ -36,6 +36,12 @@ export {
   type StochasticOutput,
   type StochasticTick,
 } from '@/momentum/Stochastic';
+export {
+  StochasticRSI,
+  type StochasticRSIInput,
+  type StochasticRSIOutput,
+  type StochasticRSITick,
+} from '@/momentum/StochasticRSI';
 
 // -- Utils ---------------------------
 export { AverageChange } from '@/utils/AverageChange';
