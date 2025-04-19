@@ -12,25 +12,25 @@ export interface StochasticRSIInput extends IndicatorInput {
    * The STOCHRSI period.
    * @default 14
    */
-  period: number;
+  period?: number;
 
   /**
    * The RSI period.
    * @default 14
    */
-  rsiPeriod: number;
+  rsiPeriod?: number;
 
   /**
    * The %K period.
    * @default 3
    */
-  kPeriod: number;
+  kPeriod?: number;
 
   /**
    * The Slow %K period.
    * @default 3
    */
-  dPeriod: number;
+  dPeriod?: number;
 }
 
 export interface StochasticRSIOutput {
@@ -75,10 +75,10 @@ export class StochasticRSI extends Indicator<StochasticRSIOutput, StochasticRSIT
 
   constructor(input: StochasticRSIInput) {
     super(input);
-    this.stochPeriod = input.period;
-    this.rsiPeriod = input.rsiPeriod;
-    this.kPeriod = input.kPeriod;
-    this.dPeriod = input.dPeriod;
+    this.stochPeriod = input.period || 14;
+    this.rsiPeriod = input.rsiPeriod || 14;
+    this.kPeriod = input.kPeriod || 3;
+    this.dPeriod = input.dPeriod || 3;
 
     this.rsi = new RSI({ period: this.rsiPeriod, values: [] });
     this.kMa = new SMA({ period: this.kPeriod, values: [] });
@@ -126,14 +126,13 @@ export class StochasticRSI extends Indicator<StochasticRSIOutput, StochasticRSIT
   }
 
   override nextValue(tick: StochasticRSITick): StochasticRSIOutput | undefined {
-    let val = this.generator.next(tick).value;
-    if (!val) return {};
+    let val: StochasticRSIOutput = this.generator.next(tick).value;
 
     val = {
       stochRSI: val.stochRSI !== undefined ? this.format(val.stochRSI) : undefined,
       k: val.k !== undefined ? this.format(val.k) : undefined,
       d: val.d !== undefined ? this.format(val.d) : undefined,
-    } satisfies StochasticRSIOutput;
+    };
 
     this.result.push(val);
 
