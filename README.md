@@ -61,6 +61,10 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 
 - [Money Flow Index (MFI)](src/volume/MFI.ts)
 
+#### Candles
+
+- [Heikin Ashi Candles (HA)](src/candles/HA.ts)
+
 #### Utils
 
 - Fibonacci Retracement
