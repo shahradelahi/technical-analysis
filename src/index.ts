@@ -45,6 +45,7 @@ export {
 
 // -- Candles -------------------------
 export { HA, type HAInput, type HAOutput, type HATick } from '@/candles/HA';
+export { SHA, type SHAInput, type SHAOutput, type SHATick } from '@/candles/SHA';
 
 // -- Utils ---------------------------
 export { AverageChange } from '@/utils/AverageChange';

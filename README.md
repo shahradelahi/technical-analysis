@@ -64,6 +64,7 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 #### Candles
 
 - [Heikin Ashi Candles (HA)](src/candles/HA.ts)
+- [Smoothed Heikin Ashi Candles (SHA)](src/candles/SHA.ts)
 
 #### Utils
 
