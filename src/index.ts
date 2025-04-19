@@ -43,6 +43,9 @@ export {
   type StochasticRSITick,
 } from '@/momentum/StochasticRSI';
 
+// -- Candles -------------------------
+export { HA, type HAInput, type HAOutput, type HATick } from '@/candles/HA';
+
 // -- Utils ---------------------------
 export { AverageChange } from '@/utils/AverageChange';
 export { FixedSizeLinkedList } from '@/utils/FixedSizeLinkedList';
