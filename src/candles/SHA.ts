@@ -90,20 +90,17 @@ export class SHA extends Indicator<SHAOutput, SHATick> {
     let tick = yield;
     let result: SHAOutput;
 
-    let open, high, low, close: number;
     while (true) {
-      const haCandle = this.ha.nextValue(tick);
-      if (!haCandle) {
+      const ha = this.ha.nextValue(tick);
+      if (!ha) {
         tick = yield undefined;
         continue;
       }
 
-      ({ open, high, low, close } = haCandle);
-
-      const o = this.oMa.nextValue(open);
-      const c = this.cMa.nextValue(close);
-      const h = this.hMa.nextValue(high);
-      const l = this.lMa.nextValue(low);
+      const o = this.oMa.nextValue(ha.open);
+      const c = this.cMa.nextValue(ha.close);
+      const h = this.hMa.nextValue(ha.high);
+      const l = this.lMa.nextValue(ha.low);
 
       if (o !== undefined && c !== undefined && h !== undefined && l !== undefined) {
         result = {
