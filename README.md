@@ -43,6 +43,7 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 - [Moving Average Convergence Divergence (MACD)](src/overlap/MACD.ts)
 - [Rolling Moving Average (RollingMA)](src/overlap/RollingMA.ts)
 - [Simple Moving Average (SMA)](src/overlap/SMA.ts)
+- [Smoothed Moving Average (SMMA)](src/overlap/SMMA.ts)
 - [Volume Weighted Average Price (VWAP)](src/overlap/VWAP.ts)
 - [Weighted Moving Average (WMA)](src/overlap/WMA.ts)
 - [Welles WildeR's Moving Average (RMA)](src/overlap/RMA.ts)

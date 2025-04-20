@@ -6,6 +6,7 @@ export { MidPrice, type MidPriceInput, type MidPriceOutput } from '@/overlap/Mid
 export { RMA, type RMATick, type RMAOutput } from '@/overlap/RMA';
 export { SMA, type SMATick, type SMAOutput } from '@/overlap/SMA';
 export { RollingMA, type RollingMATick, type RollingMAOutput } from '@/overlap/RollingMA';
+export { SMMA, type SMMAInput, type SMMAOutput } from '@/overlap/SMMA';
 export { VWAP, type VWAPInput, type VWAPOutput } from '@/overlap/VWAP';
 export { WMA, type WMATick, type WMAOutput } from '@/overlap/WMA';
 
