@@ -47,6 +47,7 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 - [Volume Weighted Average Price (VWAP)](src/overlap/VWAP.ts)
 - [Weighted Moving Average (WMA)](src/overlap/WMA.ts)
 - [Welles WildeR's Moving Average (RMA)](src/overlap/RMA.ts)
+- [Zero Lag Exponential Moving Average (ZLEMA)](src/overlap/ZLEMA.ts)
 
 ###### Trend
 

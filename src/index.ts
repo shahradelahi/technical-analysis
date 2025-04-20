@@ -9,6 +9,7 @@ export { RollingMA, type RollingMATick, type RollingMAOutput } from '@/overlap/R
 export { SMMA, type SMMAInput, type SMMAOutput } from '@/overlap/SMMA';
 export { VWAP, type VWAPInput, type VWAPOutput } from '@/overlap/VWAP';
 export { WMA, type WMATick, type WMAOutput } from '@/overlap/WMA';
+export { ZLEMA, type ZLEMATick, type ZLEMAOutput } from '@/overlap/ZLEMA';
 
 // -- Volatility ----------------------
 export { ATR, type ATRInput, type ATROutput, type ATRTick } from '@/volatility/ATR';
