@@ -5,7 +5,7 @@ export { MACD, type MACDInput, type MACDOutput } from '@/overlap/MACD';
 export { MidPrice, type MidPriceInput, type MidPriceOutput } from '@/overlap/MidPrice';
 export { RMA, type RMATick, type RMAOutput } from '@/overlap/RMA';
 export { SMA, type SMATick, type SMAOutput } from '@/overlap/SMA';
-export { RollingMA, type RollingMATick, type RollingMAOutput } from '@/overlap/RollingMA';
+export { ROMA, type ROMATick, type ROMAOutput } from '@/overlap/ROMA';
 export { SMMA, type SMMAInput, type SMMAOutput } from '@/overlap/SMMA';
 export { VWAP, type VWAPInput, type VWAPOutput } from '@/overlap/VWAP';
 export { WMA, type WMATick, type WMAOutput } from '@/overlap/WMA';

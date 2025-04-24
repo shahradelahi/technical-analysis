@@ -41,7 +41,7 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 - [Exponential Moving Average (EMA)](src/overlap/EMA.ts)
 - [Ichimoku Kinkō Hyō (Ichimoku)](src/overlap/Ichimoku.ts)
 - [Moving Average Convergence Divergence (MACD)](src/overlap/MACD.ts)
-- [Rolling Moving Average (RollingMA)](src/overlap/RollingMA.ts)
+- [Rolling Moving Average (ROMA)](src/overlap/ROMA.ts)
 - [Simple Moving Average (SMA)](src/overlap/SMA.ts)
 - [Smoothed Moving Average (SMMA)](src/overlap/SMMA.ts)
 - [Volume Weighted Average Price (VWAP)](src/overlap/VWAP.ts)
