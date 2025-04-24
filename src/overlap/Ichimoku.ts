@@ -61,6 +61,7 @@ export interface IchimokuTick {
  * Developed Pre WWII as a forecasting model for financial markets.
  *
  * Sources:
+ *  - https://www.tradingview.com/support/solutions/43000589152-ichimoku-cloud/
  *  - https://www.tradingtechnologies.com/help/x-study/technical-indicator-definitions/ichimoku-ich
  */
 export class Ichimoku extends Indicator<IchimokuOutput, IchimokuTick> {
@@ -77,8 +78,6 @@ export class Ichimoku extends Indicator<IchimokuOutput, IchimokuTick> {
   private spanB: MidPrice;
 
   protected override result: IchimokuOutput[] = [];
-
-  // @ts-expect-error generator wont yield output
   protected override generator;
 
   constructor(input: IchimokuInput) {
@@ -108,9 +107,9 @@ export class Ichimoku extends Indicator<IchimokuOutput, IchimokuTick> {
     });
   }
 
-  private *ichimokuGenerator(): IterableIterator<undefined, never, IchimokuTick> {
+  private *ichimokuGenerator(): IterableIterator<IchimokuOutput, never, IchimokuTick> {
     let index = 0;
-    let tick = yield;
+    let tick = yield { conversion: undefined, base: undefined, spanA: undefined, spanB: undefined };
 
     while (true) {
       // Feed tenkanSen, kijunSen and spanB with current tick
@@ -118,43 +117,42 @@ export class Ichimoku extends Indicator<IchimokuOutput, IchimokuTick> {
       const tenkanSen = this.tenkanSen.nextValue(midPriceTick);
       const kijunSen = this.kijunSen.nextValue(midPriceTick);
 
-      const spanA = tenkanSen && kijunSen ? (tenkanSen + kijunSen) / 2 : NaN;
-      const spanB = this.spanB.nextValue(midPriceTick) || NaN;
+      const spanA = tenkanSen && kijunSen ? (tenkanSen + kijunSen) / 2 : undefined;
+      const spanB = this.spanB.nextValue(midPriceTick);
 
       // Calculate and return Ichimoku output
+      const current = this.result[index];
       this.result[index] = {
-        conversion: tenkanSen || NaN,
-        base: kijunSen || NaN,
-        spanA: NaN,
-        spanB: NaN,
+        conversion: tenkanSen || undefined,
+        base: kijunSen || undefined,
+        spanA: current?.spanA || undefined,
+        spanB: current?.spanB || undefined,
       };
 
       // spanA and spanB projection
-      this.result[index + this.basePeriod] = {
-        conversion: NaN,
-        base: NaN,
+      this.result[index + this.basePeriod - 1] = {
+        conversion: undefined,
+        base: undefined,
         spanA: spanA,
         spanB: spanB,
       };
 
-      tick = yield;
+      tick = yield this.result[index]!;
       index += 1;
     }
   }
 
   override nextValue(tick: IchimokuTick): IchimokuOutput {
-    this.generator.next(tick);
-
-    const val = this.result.at(-1);
-    if (val === undefined) {
-      return { conversion: NaN, base: NaN, spanA: NaN, spanB: NaN };
-    }
-
+    const val = this.generator.next(tick).value;
     return {
-      conversion: val.conversion ? this.format(val.conversion) : NaN,
-      base: val.base ? this.format(val.base) : NaN,
-      spanA: val.spanA ? this.format(val.spanA) : NaN,
-      spanB: val.spanB ? this.format(val.spanB) : NaN,
+      conversion: val.conversion !== undefined ? this.format(val.conversion) : undefined,
+      base: val.base !== undefined ? this.format(val.base) : undefined,
+      spanA: val.spanA !== undefined ? this.format(val.spanA) : undefined,
+      spanB: val.spanB !== undefined ? this.format(val.spanB) : undefined,
     };
+  }
+
+  static calculate(input: IchimokuInput): IchimokuOutput[] {
+    return new Ichimoku(input).getResult();
   }
 }
