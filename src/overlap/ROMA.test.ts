@@ -16,7 +16,7 @@ const expectedResult = [
 
 describe('ROMA (Rolling Moving Average)', function () {
   it('should calculate ROMA using the calculate method', function () {
-    const result = new ROMA(input).getResult();
+    const result = ROMA.calculate(input);
     assert.deepEqual(result, expectedResult, 'Wrong Results');
   });
 

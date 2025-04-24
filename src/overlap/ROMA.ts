@@ -1,6 +1,7 @@
-import { SMAInput, SMAOutput } from 'src/overlap/SMA';
-
 import { Indicator } from '@/indicator';
+import { RollingWindow } from '@/utils/RollingWindow';
+
+import type { SMAInput, SMAOutput } from './SMA';
 
 export type ROMAInput = SMAInput;
 export type ROMAOutput = SMAOutput;
@@ -11,34 +12,37 @@ export type ROMATick = number;
  */
 export class ROMA extends Indicator<ROMAOutput, ROMATick> {
   period: number;
-  values: number[];
 
-  protected result: ROMAOutput[] = [];
-  protected generator;
+  protected override result: ROMAOutput[] = [];
+  protected override generator;
 
   constructor(input: ROMAInput) {
     super(input);
-    this.values = input.values;
     this.period = input.period || 10;
 
-    this.generator = this.rollingMovingAverageGenerator();
+    this.generator = this.romaGenerator();
     this.generator.next();
 
-    this.values.forEach((t) => this.nextValue(t));
+    input.values.forEach((t) => this.nextValue(t));
   }
 
-  private *rollingMovingAverageGenerator(): IterableIterator<SMAOutput, never, ROMATick> {
+  private *romaGenerator(): IterableIterator<ROMAOutput, never, ROMATick> {
     let tick = yield;
-    let window: number[] = [tick];
+    const window = new RollingWindow(this.period);
+    let output: ROMAOutput;
+
     while (true) {
-      if (window.length < this.period) {
-        window.push(tick);
-        tick = yield;
-      } else {
-        window = [...window.slice(1), tick];
-        const average = window.reduce((sum, cur) => sum + cur, 0) / this.period;
-        tick = yield average;
+      window.push(tick);
+
+      if (window.filled()) {
+        output = window.avg();
       }
+
+      tick = yield output;
     }
+  }
+
+  static calculate(input: ROMAInput): ROMAOutput[] {
+    return new ROMA(input).getResult();
   }
 }
