@@ -44,6 +44,7 @@ export {
   type StochasticRSIOutput,
   type StochasticRSITick,
 } from '@/momentum/StochasticRSI';
+export { WILLR, type WILLRInput, type WILLROutput, type WILLRTick } from '@/momentum/WILLR';
 
 // -- Candles -------------------------
 export { HA, type HAInput, type HAOutput, type HATick } from '@/candles/HA';
