@@ -35,6 +35,7 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 - [Relative Strength Index (RSI)](src/momentum/RSI.ts)
 - [Stochastic Oscillator (STOCH)](src/momentum/Stochastic.ts)
 - [Stochastic RSI Oscillator (STOCHRSI)](src/momentum/StochasticRSI.ts)
+- [William's Percent R (WILLR)](src/momentum/WILLR.ts)
 
 ###### Overlap
 
