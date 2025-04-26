@@ -32,6 +32,7 @@ export { AO, type AOInput, type AOOutput, type AOTick } from '@/momentum/AO';
 export { MOM, type MOMInput, type MOMOutput, type MOMTick } from '@/momentum/MOM';
 export { ROC, type ROCInput, type ROCOutput, type ROCTick } from '@/momentum/ROC';
 export { RSI, type RSIInput, type RSIOutput, type RSITick } from '@/momentum/RSI';
+export { RSX, type RSXInput, type RSXOutput, type RSXTick } from '@/momentum/RSX';
 export {
   Stochastic,
   type StochasticInput,
