@@ -41,6 +41,7 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 ###### Overlap
 
 - [Exponential Moving Average (EMA)](src/overlap/EMA.ts)
+- [Fibonacci's Weighted Moving Average (FWMA)](src/overlap/FWMA.ts)
 - [Ichimoku Kinkō Hyō (Ichimoku)](src/overlap/Ichimoku.ts)
 - [Moving Average Convergence Divergence (MACD)](src/overlap/MACD.ts)
 - [Rolling Moving Average (ROMA)](src/overlap/ROMA.ts)
