@@ -1,12 +1,12 @@
 import * as assert from 'node:assert';
 
-import { fibonacci, FIBONACCI_LEVELS } from '@/math/fibonacci';
+import { FIBONACCI_LEVELS, fibonacciRetracement } from '@/math/fibonacci';
 
-describe('calculateFibonacciRetracement', () => {
+describe('Fibonacci Retracement', () => {
   it('should calculate Fibonacci retracement levels for an uptrend', () => {
     const start = 100;
     const end = 200;
-    const result = fibonacci(start, end);
+    const result = fibonacciRetracement(start, end);
 
     assert.ok(result); // Check if result is defined
 
@@ -31,7 +31,7 @@ describe('calculateFibonacciRetracement', () => {
   it('should calculate Fibonacci retracement levels for a downtrend', () => {
     const start = 200;
     const end = 100;
-    const result = fibonacci(start, end);
+    const result = fibonacciRetracement(start, end);
 
     assert.ok(result);
 
@@ -56,7 +56,7 @@ describe('calculateFibonacciRetracement', () => {
   it('should handle start and end being the same', () => {
     const start = 100;
     const end = 100;
-    const result = fibonacci(start, end);
+    const result = fibonacciRetracement(start, end);
 
     assert.ok(result);
 
@@ -70,7 +70,7 @@ describe('calculateFibonacciRetracement', () => {
   it('should ensure calculated values are not negative', () => {
     const start = 10;
     const end = 5;
-    const result = fibonacci(start, end);
+    const result = fibonacciRetracement(start, end);
 
     FIBONACCI_LEVELS.forEach((level) => {
       assert.ok(result[level as keyof typeof result] >= 0);

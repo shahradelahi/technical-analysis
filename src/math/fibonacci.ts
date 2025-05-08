@@ -11,7 +11,7 @@ export const FIBONACCI_LEVELS = [
  * @param {number} end - The ending price point (high for uptrend, low for downtrend)
  * @returns {Record<FibonacciLevel, number>} Object of retracement levels
  */
-export function fibonacci(start: number, end: number): Record<FibonacciLevel, number> {
+export function fibonacciRetracement(start: number, end: number): Record<FibonacciLevel, number> {
   const priceRange = Math.abs(start - end);
   const isUptrend = start < end;
 
@@ -22,4 +22,49 @@ export function fibonacci(start: number, end: number): Record<FibonacciLevel, nu
       return [level, Math.max(0, calculated)];
     })
   ) as Record<FibonacciLevel, number>;
+}
+
+/**
+ * Returns an array of Fibonacci Sequence of given number
+ *
+ * @example
+ * fibonacci(5) // [1, 1, 2, 3, 5]
+ *
+ * @param n - The number of Fibonacci numbers to generate
+ * @param options - Options for the Fibonacci sequence
+ * @param options.zero - Whether to include 0 in the sequence
+ * @param options.weighted - Whether to return the sequence as weighted values
+ * @returns An array of Fibonacci numbers
+ */
+export function fibonacci(n: number, options?: { zero?: boolean; weighted?: boolean }): number[] {
+  n = Math.abs(Math.floor(n));
+
+  const { zero = false, weighted = false } = options || {};
+
+  let a, b;
+  if (zero) {
+    a = 0;
+    b = 1;
+  } else {
+    n -= 1;
+    a = 1;
+    b = 1;
+  }
+
+  const result = [a];
+  for (let i = 0; i < n; i++) {
+    [a, b] = [b, a + b];
+    result.push(a);
+  }
+
+  if (weighted) {
+    const fibSum = result.reduce((sum, val) => sum + val, 0);
+    if (fibSum > 0) {
+      return result.map((val) => val / fibSum);
+    } else {
+      return result;
+    }
+  } else {
+    return result;
+  }
 }

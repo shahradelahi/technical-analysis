@@ -1,3 +1,5 @@
+import { dot } from 'mathjs';
+
 export function toPrecision(v: number, precision?: number): number {
   return parseFloat(v.toPrecision(precision));
 }
@@ -21,6 +23,16 @@ export function toFixed(v: number, precision?: number): number {
  */
 export function zero(value: number): number {
   return Math.abs(value) < Number.EPSILON ? 0 : value;
+}
+
+/**
+ * Calculates the dot product of weights with values x
+ * @param w
+ */
+export function weights(w: number[]) {
+  return function (x: number[]) {
+    return dot(w, x);
+  };
 }
 
 export function isNumber(value: number): boolean {

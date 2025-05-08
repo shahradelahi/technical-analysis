@@ -38,6 +38,9 @@
     "typecheck": "tsc --noEmit"
   },
   "prettier": "@shahrad/prettier-config",
+  "dependencies": {
+    "mathjs": "^14.4.0"
+  },
   "devDependencies": {
     "@debut/indicators": "^1.3.22",
     "@shahrad/eslint-config": "^1.0.0",
