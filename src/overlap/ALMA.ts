@@ -70,8 +70,8 @@ export class ALMA extends Indicator<ALMAOutput, ALMATick> {
     );
     const window = new RollingWindow(this.period + 1);
 
+    let tick = yield;
     let output: ALMAOutput;
-    let tick = yield output;
 
     while (true) {
       window.push(tick);
