@@ -40,6 +40,7 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 
 ###### Overlap
 
+- [Arnaud Legoux Moving Average (ALMA)](src/overlap/ALMA.ts)
 - [Double Exponential Moving Average (DEMA)](src/overlap/DEMA.ts)
 - [Exponential Moving Average (EMA)](src/overlap/EMA.ts)
 - [Fibonacci's Weighted Moving Average (FWMA)](src/overlap/FWMA.ts)
