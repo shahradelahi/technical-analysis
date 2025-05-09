@@ -1,4 +1,5 @@
 // -- Overlap ---------------------
+export { DEMA, type DEMATick, type DEMAOutput } from '@/overlap/DEMA';
 export { EMA, type EMATick, type EMAOutput } from '@/overlap/EMA';
 export { FWMA, type FWMAInput, type FWMAOutput } from '@/overlap/FWMA';
 export { Ichimoku, type IchimokuInput, type IchimokuOutput } from '@/overlap/Ichimoku';
