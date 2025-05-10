@@ -44,6 +44,7 @@ For all configuration options, please see [the API docs](https://www.jsdocs.io/p
 - [Double Exponential Moving Average (DEMA)](src/overlap/DEMA.ts)
 - [Exponential Moving Average (EMA)](src/overlap/EMA.ts)
 - [Fibonacci's Weighted Moving Average (FWMA)](src/overlap/FWMA.ts)
+- [Gann HiLo Activator (HILO)](src/overlap/HILO.ts)
 - [Ichimoku Kinkō Hyō (Ichimoku)](src/overlap/Ichimoku.ts)
 - [Moving Average Convergence Divergence (MACD)](src/overlap/MACD.ts)
 - [Rolling Moving Average (ROMA)](src/overlap/ROMA.ts)
