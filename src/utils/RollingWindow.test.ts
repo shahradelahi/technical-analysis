@@ -18,24 +18,7 @@ describe('RollingWindow', () => {
     assert.strictEqual(window.length, 3);
     window.push(4);
     assert.strictEqual(window.length, 3);
-    assert.strictEqual(window[0], 2);
-    assert.strictEqual(window[1], 3);
-    assert.strictEqual(window[2], 4);
-  });
-
-  it('should unshift values and maintain window size', () => {
-    const window = new RollingWindow(3);
-    window.unshift(1);
-    assert.strictEqual(window.length, 1);
-    window.unshift(2);
-    assert.strictEqual(window.length, 2);
-    window.unshift(3);
-    assert.strictEqual(window.length, 3);
-    window.unshift(4);
-    assert.strictEqual(window.length, 3);
-    assert.strictEqual(window[0], 4);
-    assert.strictEqual(window[1], 3);
-    assert.strictEqual(window[2], 2);
+    assert.deepStrictEqual(window.values(), [2, 3, 4]);
   });
 
   it('should calculate the sum of values', () => {

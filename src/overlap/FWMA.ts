@@ -50,7 +50,7 @@ export class FWMA extends Indicator<FWMAOutput, FWMATick> {
       window.push(tick);
 
       if (window.filled()) {
-        output = fibWeight(window);
+        output = fibWeight(window.values());
       }
 
       tick = yield output;

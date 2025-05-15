@@ -1,33 +1,43 @@
-export class RollingWindow extends Array<number> {
+import { CircularBuffer } from '@se-oss/circular-buffer';
+
+export class RollingWindow {
+  private readonly buffer: CircularBuffer;
   private readonly windowSize: number;
 
-  constructor(windowSize: number, ...items: number[]) {
-    super(...items);
+  #sum: number = 0;
+
+  [Symbol.iterator](): IterableIterator<number> {
+    return this.buffer[Symbol.iterator]();
+  }
+
+  constructor(windowSize: number) {
+    this.buffer = new CircularBuffer(windowSize);
     this.windowSize = windowSize;
   }
 
-  override push(value: number): number {
-    super.push(value);
-    if (this.length > this.windowSize) {
-      this.shift();
-    }
-    return this.length;
+  get length(): number {
+    return this.buffer.size();
   }
 
-  override unshift(value: number): number {
-    super.unshift(value);
-    if (this.length > this.windowSize) {
-      this.pop();
+  at(index: number) {
+    return this.buffer.at(index);
+  }
+
+  push(value: number) {
+    this.#sum += value;
+    if (this.length >= this.windowSize) {
+      this.#sum -= this.buffer.at(0);
     }
-    return this.length;
+
+    this.buffer.put(value);
   }
 
   filled(): boolean {
-    return this.length === this.windowSize;
+    return this.buffer.isFull();
   }
 
   sum(): number {
-    return this.values().reduce((a, b) => a + b, 0);
+    return this.#sum;
   }
 
   avg(): number {
@@ -35,10 +45,14 @@ export class RollingWindow extends Array<number> {
   }
 
   highest(): number {
-    return Math.max(...this.values());
+    return Math.max(...this);
   }
 
   lowest(): number {
-    return Math.min(...this.values());
+    return Math.min(...this);
+  }
+
+  values(): number[] {
+    return this.buffer.toArray();
   }
 }

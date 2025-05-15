@@ -23,11 +23,11 @@ describe("Fibonacci's Weighted Moving Average (FWMA)", function () {
   });
 
   it('should be able to get FWMA for the next bar using nextValue', function () {
-    const wilderSmoothing = new FWMA({ ...input, values: [] });
+    const fwma = new FWMA({ ...input, values: [] });
     const results: number[] = [];
 
     input.values.forEach((price) => {
-      const result = wilderSmoothing.nextValue(price);
+      const result = fwma.nextValue(price);
       if (result !== undefined) {
         results.push(result);
       }

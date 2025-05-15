@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@se-oss/circular-buffer':
+        specifier: ^1.0.2
+        version: 1.0.2
       mathjs:
         specifier: ^14.4.0
         version: 14.4.0
@@ -613,6 +616,9 @@ packages:
     resolution: {integrity: sha512-LWbXUBwn/bcLx2sSsqy7pK5o+Nr+VCoRoAohfJ5C/aBio9nfJmGQqHAhU6pwxV/RmyTk5AqdySma7uwWGlmeuA==}
     cpu: [x64]
     os: [win32]
+
+  '@se-oss/circular-buffer@1.0.2':
+    resolution: {integrity: sha512-h+mDAbaNDf5cIPyTEAnw+/74DsSwjk2h4vAt/dI5jZYd9EkLMVWJaWfl1o/5KlC9glpHJJZw85KFKSAGTGTRdw==}
 
   '@shahrad/eslint-config@1.0.0':
     resolution: {integrity: sha512-J/RJBYyva4REnQr9C/pvT/9ydPX8zKwoV1ltzmKicX5IQKqN5S/1nrFmkZvSg8MoaXM2WM4AsNZVklTxDeW0+g==}
@@ -2192,6 +2198,8 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.37.0':
     optional: true
+
+  '@se-oss/circular-buffer@1.0.2': {}
 
   '@shahrad/eslint-config@1.0.0(typescript@5.8.3)':
     dependencies:

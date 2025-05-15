@@ -1,9 +1,14 @@
 import { Indicator, IndicatorInput } from '@/indicator';
-import { LinkedList } from '@/utils/LinkedList';
+import { RollingWindow } from '@/utils/RollingWindow';
 
 export interface SMAInput extends IndicatorInput {
-  period: number;
   values: number[];
+
+  /**
+   * It's period.
+   * @default 10
+   */
+  period?: number;
 }
 
 export type SMAOutput = number | undefined;
@@ -21,34 +26,30 @@ export class SMA extends Indicator<SMAOutput, SMATick> {
 
   constructor(input: SMAInput) {
     super(input);
-    this.period = input.period;
+    this.period = input.period || 10;
 
     this.generator = this.smaGenerator();
     this.generator.next();
 
-    input.values.forEach((t) => this.nextValue(t));
+    input.values.forEach((t) => {
+      this.nextValue(t);
+    });
   }
 
-  private *smaGenerator(): IterableIterator<SMAOutput, never, number> {
-    const list = new LinkedList();
+  private *smaGenerator(): IterableIterator<SMAOutput, never, SMATick> {
+    const window = new RollingWindow(this.period);
 
-    let sum = 0;
-    let counter = 1;
-    let current = yield;
-    let result;
+    let tick = yield;
+    let output: SMAOutput;
 
-    list.push(0);
     while (true) {
-      if (counter < this.period) {
-        counter++;
-        sum = sum + current;
-      } else {
-        sum = sum - list.shift() + current;
-        result = sum / this.period;
-      }
-
-      list.push(current);
-      current = yield result;
+      window.push(tick);
+      output = window.filled() ? window.avg() : undefined;
+      tick = yield output;
     }
+  }
+
+  static calculate(input: SMAInput): SMAOutput[] {
+    return new SMA(input).getResult();
   }
 }
