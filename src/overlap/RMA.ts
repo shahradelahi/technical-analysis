@@ -33,7 +33,7 @@ export class RMA extends Indicator<RMAOutput, RMATick> {
   constructor(input: RMAInput) {
     super(input);
 
-    this.period = input.period;
+    this.period = input.period || 10;
     this.alpha = 1 / this.period;
 
     this.sma = new SMA({ period: input.period, values: [] });
@@ -47,21 +47,21 @@ export class RMA extends Indicator<RMAOutput, RMATick> {
   }
 
   private *rmaGenerator(): IterableIterator<RMAOutput, never, RMATick> {
-    let index = 0;
     let tick = yield;
     let prev;
+
     while (true) {
-      if (index < this.period) {
+      if (prev === undefined) {
         prev = this.sma.nextValue(tick);
-        tick = yield prev;
-      } else if (index === this.period) {
-        prev = (tick - prev!) * this.alpha + prev!;
         tick = yield prev;
       } else {
         prev = (tick - prev!) * this.alpha + prev!;
         tick = yield prev;
       }
-      index++;
     }
+  }
+
+  static calculate(input: RMAInput): RMAOutput[] {
+    return new RMA(input).getResult();
   }
 }
