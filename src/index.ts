@@ -3,6 +3,7 @@ export { ALMA, type ALMAInput, type ALMAOutput } from '@/overlap/ALMA';
 export { DEMA, type DEMATick, type DEMAOutput } from '@/overlap/DEMA';
 export { EMA, type EMATick, type EMAOutput } from '@/overlap/EMA';
 export { FWMA, type FWMAInput, type FWMAOutput } from '@/overlap/FWMA';
+export { HILO, type HILOInput, type HILOOutput } from '@/overlap/HILO';
 export { Ichimoku, type IchimokuInput, type IchimokuOutput } from '@/overlap/Ichimoku';
 export { MACD, type MACDInput, type MACDOutput } from '@/overlap/MACD';
 export { MidPrice, type MidPriceInput, type MidPriceOutput } from '@/overlap/MidPrice';
