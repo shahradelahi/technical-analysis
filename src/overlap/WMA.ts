@@ -26,7 +26,7 @@ export class WMA extends Indicator<WMAOutput, WMATick> {
 
   constructor(input: WMAInput) {
     super(input);
-    this.period = input.period;
+    this.period = input.period || 10;
     this.values = input.values;
 
     this.denominator = (this.period * (this.period + 1)) / 2;
@@ -55,5 +55,9 @@ export class WMA extends Indicator<WMAOutput, WMATick> {
       data.shift();
       data.push(yield result);
     }
+  }
+
+  static calculate(input: WMAInput): WMAOutput[] {
+    return new WMA(input).getResult();
   }
 }

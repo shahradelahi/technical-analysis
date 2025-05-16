@@ -63,7 +63,7 @@ export class ROC extends Indicator<ROCOutput, ROCTick> {
     while (true) {
       mom = this.mom.nextValue(tick);
       if (mom !== undefined) {
-        output = this.scalar * (mom / this.mom.window[0]!);
+        output = this.scalar * (mom / this.mom.window.at(0)!);
       }
       tick = yield output;
     }

@@ -34,10 +34,10 @@ export class EMA extends Indicator<EMAOutput, EMATick> {
   constructor(input: EMAInput) {
     super(input);
 
-    this.period = input.period;
-    this.alpha = input.alpha ?? 2 / (input.period + 1);
+    this.period = input.period || 10;
+    this.alpha = input.alpha || 2 / (this.period + 1);
 
-    this.sma = new SMA({ period: input.period, values: [] });
+    this.sma = new SMA({ period: this.period, values: [] });
 
     this.generator = this.emaGenerator();
     this.generator.next();
@@ -60,5 +60,9 @@ export class EMA extends Indicator<EMAOutput, EMATick> {
         if (prev !== undefined) tick = yield prev;
       }
     }
+  }
+
+  static calculate(input: EMAInput): EMAOutput[] {
+    return new EMA(input).getResult();
   }
 }

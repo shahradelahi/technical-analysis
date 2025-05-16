@@ -1,7 +1,7 @@
 {
   "name": "@se-oss/ta",
   "version": "0.0.0",
-  "description": "JS library for technical analysis and many more utilities.",
+  "description": "Javascript library for technical analysis for financial charts.",
   "keywords": [
     "technical",
     "analysis",
@@ -39,6 +39,7 @@
   },
   "prettier": "@shahrad/prettier-config",
   "dependencies": {
+    "@se-oss/circular-buffer": "^1.0.2",
     "mathjs": "^14.4.0"
   },
   "devDependencies": {

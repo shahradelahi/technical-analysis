@@ -3,11 +3,11 @@ import { SMA, SMAInput } from 'src/overlap/SMA';
 
 import { SampleValues } from '@/samples';
 
-const input = {
+const input: SMAInput = {
   values: SampleValues,
   period: 5,
   decimal: 3,
-} satisfies SMAInput;
+};
 
 const expectResult = [
   136.78, 138.734, 142.406, 143.666, 142.032, 142.096, 147.082, 153.396, 165.656, 182.59, 201.376,
@@ -16,7 +16,7 @@ const expectResult = [
 
 describe('Simple Moving Average (SMA)', function () {
   it('should calculate SMA using the calculate method', function () {
-    const result = new SMA(input).getResult();
+    const result = SMA.calculate(input);
     assert.deepEqual(result, expectResult, 'Wrong Results');
   });
 
@@ -45,6 +45,7 @@ describe('Simple Moving Average (SMA)', function () {
 
     const result = new SMA({
       period: 4,
+      decimal: 5,
       values: [0.001, 0.003, 0.001, 0.003, 0.004, 0.002, 0.003, 0.003, 0.002],
     }).getResult();
 
@@ -56,6 +57,7 @@ describe('Simple Moving Average (SMA)', function () {
 
     const result = new SMA({
       period: 4,
+      decimal: 5,
       values: [0.001, 0.003, 0.001, 0.003, 0.004, 0.002, 0.003, 0.003, 0.002],
       formatter: (val) => {
         return parseFloat(val.toPrecision(1));
